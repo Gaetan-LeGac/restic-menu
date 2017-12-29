@@ -1,0 +1,10 @@
+#: Repo dir
+repo:/home/gaetan/Sauvegardes/PC-Portable
+
+#: Repo password
+mdp:123
+
+#: Dirs to backup
+/home/gaetan/Bureau
+#: Except ...
+sauf:/home/gaetan/Bureau/test
