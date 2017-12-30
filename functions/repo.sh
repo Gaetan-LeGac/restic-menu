@@ -9,14 +9,20 @@ function getConfig {
 	while IFS='' read -r ligne || [[ -n "$ligne" ]]; do
 		# Separate key and value
 		decomp=(${ligne//:/ })
-		
+		key=${decomp[0]}
+		value=${decomp[1]}
+
 		# Deal by key
 		case ${decomp[0]} in
 			# Define repo path
-			"repo") ComDefaut+=" -r ${decomp[1]}" ;;
+			"repo")
+				info "Current repo: ${decomp[1]}"
+				ComDefaut+=" -r ${decomp[1]}" ;;
 			# Define repo password (unsafe, but useful for cronjob)
-			"mdp") 	export RESTIC_PASSWORD=${decomp[1]} ;;
-			
+			"mdp")
+			 	info "Password defined from config"
+				export RESTIC_PASSWORD=${decomp[1]} ;;
+
 			# Add dir to exclude from backup
 			"sauf") exclure+=(${decomp[1]}) ;;
 			# Comment. Nothing to do
@@ -25,6 +31,7 @@ function getConfig {
 			*)		dossiers+=(${decomp[0]}) ;;
 		esac
 	done < "$1"
+	printf "\n"
 }
 
 function Init {
