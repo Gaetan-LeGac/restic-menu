@@ -5,6 +5,8 @@ The goal is to run incremental backups via cron and restore data where you want 
 
 Only one snapshot repo is supported for now.
 
+![Preview](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Preview")
+
 ## Install
 
 You need to install the restic package:
@@ -21,10 +23,10 @@ And then edit config.txt to fit your needs.
 
 > ./Backup.sh [Configuration file] [mode]
 
-* Configuration file: 
+* Configuration file:
 	- Description: Path to the configuration file
 	- Default value: Script path
-* Mode: 
+* Mode:
 	- Description: Running mode
 	- Possible values:
 		- backup: Do a silent backup (useful for automatisations)

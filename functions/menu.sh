@@ -1,5 +1,5 @@
 function info {
-	echo "(i) $1"
+	echo "[i] $1"
 }
 
 function menu {

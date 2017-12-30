@@ -5,6 +5,6 @@ repo:/home/gaetan/Sauvegardes/PC-Portable
 mdp:123
 
 #: Dirs to backup
-/home/gaetan/Bureau
-#: Except ...
-sauf:/home/gaetan/Bureau/test
+/home/gaetan
+#: Except heavy stuff
+sauf:/home/gaetan/VirtualBox VMs
