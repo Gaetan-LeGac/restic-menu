@@ -5,7 +5,7 @@ The goal is to run incremental backups via cron and restore data where you want 
 
 Only one snapshot repo is supported for now.
 
-![Preview](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Preview")
+![Preview](https://raw.githubusercontent.com/Gaetan-LeGac/restic-menu/master/preview.png "Preview")
 
 ## Install
 
