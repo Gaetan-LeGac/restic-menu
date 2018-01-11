@@ -1,0 +1,14 @@
+#= Repo dir
+repo=sftp:admin@10.42.0.1:/home/Backups/Laptop
+
+#= Repo password
+mdp=123
+
+#= Dirs to backup
+/home/gaetan
+/etc/apt
+/etc/apache2
+/var/www
+
+#= Except this
+sauf=/home/gaetan/.cache

@@ -1,0 +1,8 @@
+#= Repo dir
+repo=/home/gaetan/Sauvegardes/CLOUD
+
+#= Repo password
+mdp=Sybelle27
+
+#= Dirs to backup
+/home/gaetan/CLOUD

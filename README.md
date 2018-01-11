@@ -31,3 +31,8 @@ And then edit config.txt to fit your needs.
 	- Possible values:
 		- backup: Do a silent backup (useful for automatisations)
 		- Anything else: Show the menu
+
+## Config file
+
+Config file is really simple as f*ck: a key and a value, separated by a =
+You can check config.txt to see possible keys.

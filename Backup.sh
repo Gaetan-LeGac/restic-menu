@@ -1,12 +1,18 @@
 #!/bin/bash
 
 # Including functions
-source ./functions/menu.sh
+source ./functions/utils.sh
+
 source ./functions/repo.sh
+source ./functions/snap.sh
+
 source ./functions/backup.sh
 
+# Default command
+ComDefaut="restic"
+
 # Arguments
-dConfig=${1:-$(dirname $0)/config.txt}
+dConfig=${1:-$(dirname $0)/config}
 mode=${2:-menu}
 
 # Read config file
