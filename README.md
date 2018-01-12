@@ -1,9 +1,6 @@
 # Basic CLI for restic
 
-A very simple tool to use restic without any command line.
-The goal is to run incremental backups via cron and restore data where you want and easily.
-
-Only one snapshot repo is supported for now.
+A very simple tool to use restic without any command line with profile files.
 
 ![Preview](https://raw.githubusercontent.com/Gaetan-LeGac/restic-menu/master/preview.png "Preview")
 
@@ -21,18 +18,29 @@ And then edit config.txt to fit your needs.
 
 ## How to use
 
-> ./Backup.sh [Configuration file] [mode]
+To show Menu, simply type:
 
-* Configuration file:
-	- Description: Path to the configuration file
-	- Default value: Script path
-* Mode:
-	- Description: Running mode
+> ./Backup.sh
+
+You can define a specific profile(s) path and automatically run a task (nice for cron tasks):
+
+> ./Backup.sh [Profiles path] [Action]
+
+* Profile path (Optional)
+	- Description: Path to the profiles directory.
+		I can also be a file path to load immediatly.
+	- Default value: ./config (relative to script path)
+* Task (Optional)
+	- Description: Task to run
 	- Possible values:
-		- backup: Do a silent backup (useful for automatisations)
-		- Anything else: Show the menu
+		- backup (Default)
+		- Anithing else: show the menu
 
-## Config file
+## Profile file
 
-Config file is really simple as f*ck: a key and a value, separated by a =
-You can check config.txt to see possible keys.
+Config file is really simple: key = value :)
+You can check ./profiles/example.txt to see possible keys.
+
+## I hope i will be as usefull as in my case ;)
+
+Don't hesitate to make it better, I know I'm not a god about Bash.

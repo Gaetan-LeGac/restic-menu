@@ -19,30 +19,34 @@ function err {
 dossiers=()
 exclure=()
 function getConfig {
-	info "Searching for profiles in $1"
-	printf "\n"
-	profiles=( $(find $1 -maxdepth 1 -name "*.txt" -print0 | xargs -0) )
+	if [ -f $1 ]; then
+		profile="$1"
+	else
+		info "Searching for profiles in $1"
+		printf "\n"
+		profiles=( $(find $1 -maxdepth 1 -name "*.txt" -print0 | xargs -0) )
+		PS3="Profile to load: "
+		select profile in "${profiles[@]}" "Enter full path" "Quit" ; do
+		    if (( REPLY == 1 + ${#profiles[@]} )) ; then
+		        echo "Full path to profile file:"
+				read profile
+				break;
+			elif (( REPLY == 2 + ${#profiles[@]} )) ; then
+				exit
+		    elif (( REPLY <= 0 || REPLY > ${#profiles[@]} )) ; then
+		        err "Is your keyboard broken ?"
+			else
+				break;
+		    fi
+		done
 
-	PS3="Profile to load: "
-	select profile in "${profiles[@]}" "Enter full path" "Quit" ; do
-	    if (( REPLY == 1 + ${#profiles[@]} )) ; then
-	        echo "Full path to profile file:"
-			read $profile
-			break;
-		elif (( REPLY == 2 + ${#profiles[@]} )) ; then
+		if [ ! -f "$profile" ]; then
+			err "Error: Can't find profile file '$profile' ."
 			exit
-	    elif (( REPLY <= 0 || REPLY > ${#profiles[@]} )) ; then
-	        err "Is your keyboard broken ?"
-		else
-			break;
-	    fi
-	done
-
-	if [ ! -f $profile ]; then
-		err "Error: Can't find $profile . Exiting."
-		exit
+		fi
 	fi
 
+	info "Reading $profile"
 	printf "\n"
 
 	# Iterate each config file lines
